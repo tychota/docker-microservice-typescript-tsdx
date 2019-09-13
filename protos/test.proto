@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message InputDto {
+  required string firstNumber = 1;
+  string secondNumber = 2;
+  string label = 3;
+}
+
+message OutputDto {
+  required string result = 1;
+  string label = 2;
+}
+
+service AdditionService { rpc Add(InputDto) returns (OutputDto); }

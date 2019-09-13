@@ -1,0 +1,19 @@
+{
+  "name": "test-ms-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "lerna": "^3.16.4"
+  },
+  "scripts": {
+    "postinstall": "lerna bootstrap && lerna run patch-package",
+    "clean": "lerna clean",
+    "start": "lerna run start --stream",
+    "build": "lerna run build",
+    "update": "lernaupdate"
+  },
+  "devDependencies": {
+    "lerna-update-wizard": "^0.16.0"
+  }
+}

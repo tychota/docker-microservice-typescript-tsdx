@@ -1,0 +1,25 @@
+diff --git a/node_modules/tsdx/dist/output.js b/node_modules/tsdx/dist/output.js
+index 9a8624b..46983b6 100644
+--- a/node_modules/tsdx/dist/output.js
++++ b/node_modules/tsdx/dist/output.js
+@@ -23,7 +23,6 @@ exports.wait = (msg) => {
+     spinner.start();
+     return () => {
+         spinner.stop();
+-        process.stdout.write(ansi_escapes_1.eraseLine);
+     };
+ };
+ exports.cmd = (cmd) => {
+diff --git a/node_modules/tsdx/dist/utils.js b/node_modules/tsdx/dist/utils.js
+index 4c2bbc6..7219a89 100644
+--- a/node_modules/tsdx/dist/utils.js
++++ b/node_modules/tsdx/dist/utils.js
+@@ -22,7 +22,5 @@ exports.resolveApp = function (relativePath) {
+ };
+ // Taken from Create React App, react-dev-utils/clearConsole
+ // @see https://github.com/facebook/create-react-app/blob/master/packages/react-dev-utils/clearConsole.js
+-function clearConsole() {
+-    process.stdout.write(process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H');
+-}
++function clearConsole() {}
+ exports.clearConsole = clearConsole;

@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  api-gateway:
+    image: test-ms/api-gateway:dev
+    volumes:
+      - ./protos:/srv/api-gateway/protos
+      - ./packages/api-gateway/dist:/srv/api-gateway/dist
+    command: "./node_modules/.bin/nodemon -L --ext js --ext proto --watch ./protos --watch ./dist dist/index.js"
+  ms-calculation:
+    image: test-ms/ms-calculation:dev
+    volumes:
+      - ./protos:/srv/ms-calculation/protos
+      - ./packages/ms-calculation/dist:/srv/ms-calculation/dist
+      - ./packages/utils-number/dist:/srv/ms-calculation/node_modules/utils-number/dist
+    command: "./node_modules/.bin/nodemon -L --ext js --ext proto --watch ./protos --watch ./dist --watch ./node_modules/ms-calculation ./dist/index.js"
