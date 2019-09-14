@@ -7,9 +7,9 @@
     "lerna": "^3.16.4"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap && lerna run patch-package",
+    "postinstall": "lerna bootstrap && lerna link && lerna run patch",
     "clean": "lerna clean",
-    "start": "lerna run start --stream",
+    "start": "lerna run start --parallel",
     "build": "lerna run build",
     "update": "lernaupdate"
   },

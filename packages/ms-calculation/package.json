@@ -2,14 +2,14 @@
   "name": "ms-calculation",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "module": "dist/ms-profile.esm.js",
+  "module": "dist/ms-calculation.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "license": "MIT",
   "dependencies": {
-    "utils-number": "file:../utils-number",
+    "utils-number": "*",
     "@grpc/proto-loader": "0.5.2",
     "grpc": "1.23.3"
   },
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build"
+    "build": "tsdx build",
+    "patch": "patch-package"
   }
 }

@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build"
+    "build": "tsdx build",
+    "patch": "patch-package"
   }
 }

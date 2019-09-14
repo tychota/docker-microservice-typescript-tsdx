@@ -1,19 +1,23 @@
 # syntax = docker/dockerfile:experimental
 FROM node:12-alpine
 
-RUN mkdir /var/tmp/yarn
-RUN yarn config set cache-folder /var/tmp/yarn
+ENV YARN_CACHE_FOLDER=/var/tmp/yarn
+
+WORKDIR /srv
+COPY lerna.json .
+COPY yarn.lock .
+COPY package.json .
 
 WORKDIR /srv/utils-number
-
 COPY packages/utils-number/package.json .
 COPY packages/utils-number/yarn.lock .
 
-RUN --mount=type=cache,id=yarn-cache,sharing=private,target=/var/tmp/yarn yarn install --frozen-lockfile
-
 WORKDIR /srv/ms-calculation
-
 COPY packages/ms-calculation/package.json .
 COPY packages/ms-calculation/yarn.lock .
 
+WORKDIR /srv
 RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install --frozen-lockfile
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn lerna bootstrap
+
+WORKDIR /srv/ms-calculation

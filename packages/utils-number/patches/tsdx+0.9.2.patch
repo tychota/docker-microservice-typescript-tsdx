@@ -1,8 +1,8 @@
 diff --git a/node_modules/tsdx/dist/output.js b/node_modules/tsdx/dist/output.js
-index 9a8624b..46983b6 100644
+index 9a8624b..2909b21 100644
 --- a/node_modules/tsdx/dist/output.js
 +++ b/node_modules/tsdx/dist/output.js
-@@ -23,7 +23,6 @@ exports.wait = (msg) => {
+@@ -23,15 +23,14 @@ exports.wait = (msg) => {
      spinner.start();
      return () => {
          spinner.stop();
@@ -10,6 +10,17 @@ index 9a8624b..46983b6 100644
      };
  };
  exports.cmd = (cmd) => {
+-    return chalk_1.default.bold(chalk_1.default.cyan(cmd));
++    return chalk_1.default.cyan(cmd);
+ };
+ exports.code = (cmd) => {
+-    return `${chalk_1.default.gray('`')}${chalk_1.default.bold(cmd)}${chalk_1.default.gray('`')}`;
++    return `${chalk_1.default.gray('`')}${cmd}${chalk_1.default.gray('`')}`;
+ };
+ exports.param = (param) => {
+-    return chalk_1.default.bold(`${chalk_1.default.gray('{')}${chalk_1.default.bold(param)}${chalk_1.default.gray('}')}`);
++    return `${chalk_1.default.gray('{')}${param}${chalk_1.default.gray('}')}`;
+ };
 diff --git a/node_modules/tsdx/dist/utils.js b/node_modules/tsdx/dist/utils.js
 index 4c2bbc6..7219a89 100644
 --- a/node_modules/tsdx/dist/utils.js
