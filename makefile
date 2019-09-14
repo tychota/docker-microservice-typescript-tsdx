@@ -23,7 +23,7 @@ stop-container-dev:						## Stop the containers dev mode
 
 run-container-dev: stop-container-dev	## Run the containers dev mode
 	docker-compose -f docker-compose.dev.yaml up -d --force-recreate
-	docker-compose -f docker-compose.dev.yaml logs
+	docker-compose -f docker-compose.dev.yaml logs -f
 
 start-packager-dev:						## Start the packager in dev mode
 	yarn start

@@ -25,5 +25,5 @@ app.get("/add/:n1/:n2", function(req, res) {
 });
 
 app.listen(3000, function() {
-  console.log("Example app listening on port 3000!");
+  console.log("Listening on 3000");
 });

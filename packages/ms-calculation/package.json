@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "utils-number": "*",
+    "utils-number": "link:../utils-number",
     "@grpc/proto-loader": "0.5.2",
     "grpc": "1.23.3"
   },

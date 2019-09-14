@@ -3,6 +3,8 @@ FROM node:12-alpine
 
 ENV YARN_CACHE_FOLDER=/var/tmp/yarn
 
+RUN apk add --update inotify-tools procps
+
 WORKDIR /srv
 COPY lerna.json .
 COPY yarn.lock .
@@ -11,13 +13,9 @@ COPY package.json .
 WORKDIR /srv/utils-number
 COPY packages/utils-number/package.json .
 COPY packages/utils-number/yarn.lock .
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install
 
 WORKDIR /srv/ms-calculation
 COPY packages/ms-calculation/package.json .
 COPY packages/ms-calculation/yarn.lock .
-
-WORKDIR /srv
-RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install --frozen-lockfile
-RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn lerna bootstrap
-
-WORKDIR /srv/ms-calculation
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install

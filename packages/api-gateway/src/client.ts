@@ -10,6 +10,6 @@ const grpcObject = grpc.loadPackageDefinition(packageDefinition);
 const AdditionService: typeof Client = grpcObject.AdditionService;
 
 export const client = new AdditionService(
-  "localhost:3333",
+  "ms-calculation:3333",
   grpc.credentials.createInsecure()
 );
