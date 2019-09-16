@@ -16,7 +16,7 @@ server.addService(AdditionService.service, {
   add: ({ request }: any, callback: any) => {
     const result = {
       result: add(request.firstNumber, request.secondNumber),
-      label: request.label
+      label2: request.label
     };
     callback(null, result);
   }

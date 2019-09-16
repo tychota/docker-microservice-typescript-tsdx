@@ -1,0 +1,14 @@
+version: 2
+options:
+  compose-file-path: "docker-compose-prod.yml"
+  compose-dev-file-path: "docker-compose-dev.yml"
+syncs:
+  shared-protos:
+    src: "./protos"
+
+  dist-api-gateway:
+    src: "./packages/api-gateway/dist"
+  dist-ms-calculation:
+    src: "./packages/ms-calculation/dist"
+  dist-utils-number:
+    src: "./packages/utils-number/dist"

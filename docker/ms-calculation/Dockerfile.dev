@@ -3,19 +3,24 @@ FROM node:12-alpine
 
 ENV YARN_CACHE_FOLDER=/var/tmp/yarn
 
-RUN apk add --update inotify-tools procps
+RUN apk add --update inotify-tools make
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn global add nodemon
 
 WORKDIR /srv
+COPY makefile .
 COPY lerna.json .
 COPY yarn.lock .
 COPY package.json .
 
-WORKDIR /srv/utils-number
+WORKDIR /srv/packages/utils-number
 COPY packages/utils-number/package.json .
 COPY packages/utils-number/yarn.lock .
-RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install
 
-WORKDIR /srv/ms-calculation
+WORKDIR /srv/packages/ms-calculation
 COPY packages/ms-calculation/package.json .
 COPY packages/ms-calculation/yarn.lock .
-RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn install
+
+WORKDIR /srv
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn make install-prod
+
+WORKDIR /srv/packages/ms-calculation

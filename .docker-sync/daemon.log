@@ -1,0 +1,62 @@
+          ok  Starting native_osx for sync shared-protos
+          ok  shared-protos container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: shared-protos
+          ok  Starting native_osx for sync dist-api-gateway
+          ok  dist-api-gateway container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-api-gateway
+          ok  Starting native_osx for sync dist-ms-calculation
+          ok  dist-ms-calculation container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-ms-calculation
+          ok  Starting native_osx for sync dist-utils-number
+          ok  dist-utils-number container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-utils-number
+[2019-09-16 14:07:26 +0200] Sync Log:  Error response from daemon: Bad response from Docker engine
+[2019-09-16 14:07:26 +0200] Sync Log:  Error response from daemon: Bad response from Docker engine
+[2019-09-16 14:07:26 +0200] Sync Log:  Error response from daemon: Bad response from Docker engine
+[2019-09-16 14:07:26 +0200] Sync Log:  Error response from daemon: Bad response from Docker engine
+          ok  Starting native_osx for sync shared-protos
+          ok  shared-protos container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: shared-protos
+          ok  Starting native_osx for sync dist-api-gateway
+          ok  dist-api-gateway container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-api-gateway
+          ok  Starting native_osx for sync dist-ms-calculation
+          ok  dist-ms-calculation container still running, restarting unison in container
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-ms-calculation
+          ok  Starting native_osx for sync dist-utils-number
+          ok  dist-utils-number container still running, restarting unison in container
+[2019-09-16 14:27:00 +0200] Sync Log:  [BGN] Updating file ms-calculation.cjs.production.min.js from /host_sync to /app_sync
+[2019-09-16 14:27:00 +0200] Sync Log:  [END] Updating file ms-calculation.cjs.production.min.js
+[2019-09-16 14:27:00 +0200] Sync Log:  [BGN] Updating file ms-calculation.cjs.production.min.js.map from /host_sync to /app_sync
+[2019-09-16 14:27:00 +0200] Sync Log:  [END] Updating file ms-calculation.cjs.production.min.js.map
+[2019-09-16 14:27:00 +0200] Sync Log:  [BGN] Updating file ms-calculation.esm.js from /host_sync to /app_sync
+[2019-09-16 14:27:00 +0200] Sync Log:  [END] Updating file ms-calculation.esm.js
+[2019-09-16 14:27:00 +0200] Sync Log:  [BGN] Updating file ms-calculation.esm.js.map from /host_sync to /app_sync
+[2019-09-16 14:27:00 +0200] Sync Log:  [END] Updating file ms-calculation.esm.js.map
+[2019-09-16 14:27:00 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 14:26:52.27 on 16 Sep 2019
+[2019-09-16 14:27:00 +0200] Sync Log:  Synchronization complete at 14:26:52  (6 items transferred, 0 skipped, 0 failed)
+unison: stopped
+unison: started
+     success  Sync container started
+     success  Showing unison logs from your sync container: dist-utils-number

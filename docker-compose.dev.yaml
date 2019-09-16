@@ -4,15 +4,25 @@ services:
   api-gateway:
     image: test-ms/api-gateway:dev
     volumes:
-      - ./protos:/srv/api-gateway/protos
-      - ./packages/api-gateway/dist:/srv/api-gateway/dist
-    command: "./node_modules/.bin/nodemon --ext js --ext proto dist/index.js"
+      - shared-protos:/srv/packages/api-gateway/protos:nocopy
+      - dist-api-gateway:/srv/packages/api-gateway/dist:nocopy
+    command: "nodemon -L --ext js --ext proto --watch ./protos --watch ./dist dist/index.js"
     ports:
       - 3000:3000
   ms-calculation:
     image: test-ms/ms-calculation:dev
     volumes:
-      - ./protos:/srv/ms-calculation/protos
-      - ./packages/ms-calculation/dist:/srv/ms-calculation/dist
-      - ./packages/utils-number/dist:/srv/ms-calculation/node_modules/utils-number/dist
-    command: "./node_modules/.bin/nodemon --ext js --ext proto ./dist/index.js"
+      - shared-protos:/srv/packages/ms-calculation/protos:nocopy
+      - dist-ms-calculation:/srv/packages/ms-calculation/dist:nocopy
+      - dist-utils-number:/srv/packages/ms-calculation/node_modules/utils-number/dist:nocopy
+    command: "nodemon -L --ext js --ext proto --watch /srv/packages/ms-calculation/protos --watch /srv/packages/ms-calculation/dist --watch /srv/packages/ms-calculation/node_modules/ms-calculation /srv/packages/ms-calculation/dist/index.js"
+
+volumes:
+  shared-protos:
+    external: true
+  dist-api-gateway:
+    external: true
+  dist-ms-calculation:
+    external: true
+  dist-utils-number:
+    external: true

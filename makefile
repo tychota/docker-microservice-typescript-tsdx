@@ -3,6 +3,11 @@ help:                   				## Show this help.
 
 install:                				## Install node modules
 	yarn install
+	yarn bootstrap
+
+install-prod:                		    ## Install node modules
+	yarn install --production --frozen-lockfile
+	yarn bootstrap-prod
 
 reinstall:              				## Clean and reinstall node modules
 	yarn clean
@@ -14,7 +19,7 @@ update:                 				## Interactively upgrade files
 build-images-dev:
 	DOCKER_BUILDKIT=1 docker build --progress plain -t test-ms/$(name):dev -f docker/$(name)/Dockerfile.dev .
 
-build-all-images-dev: install  			## Build the different docker files in dev mode
+build-all-images-dev:		  			## Build the different docker files in dev mode
 	$(MAKE) build-images-dev name=api-gateway
 	$(MAKE) build-images-dev name=ms-calculation
 
