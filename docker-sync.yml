@@ -4,11 +4,18 @@ options:
   compose-dev-file-path: "docker-compose-dev.yml"
 syncs:
   shared-protos:
-    src: "./protos"
-
+    src: "./protos/"
+    sync_strategy: "rsync"
+    sync_host_port: 10871
   dist-api-gateway:
-    src: "./packages/api-gateway/dist"
+    src: "./packages/api-gateway/dist/"
+    sync_strategy: "rsync"
+    sync_host_port: 10872
   dist-ms-calculation:
-    src: "./packages/ms-calculation/dist"
+    src: "./packages/ms-calculation/dist/"
+    sync_strategy: "rsync"
+    sync_host_port: 10873
   dist-utils-number:
-    src: "./packages/utils-number/dist"
+    src: "./packages/utils-number/dist/"
+    sync_strategy: "rsync"
+    sync_host_port: 10874

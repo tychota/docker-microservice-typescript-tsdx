@@ -15,7 +15,7 @@ app.get("/add/:n1/:n2", function(req, res) {
     },
     (err: any, data: any) => {
       if (err) {
-        res.statusCode = 500;
+        res.statusCode = 400;
         res.send(err);
       } else {
         res.send(data.result);

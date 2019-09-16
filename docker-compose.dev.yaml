@@ -6,7 +6,7 @@ services:
     volumes:
       - shared-protos:/srv/packages/api-gateway/protos:nocopy
       - dist-api-gateway:/srv/packages/api-gateway/dist:nocopy
-    command: "nodemon -L --ext js --ext proto --watch ./protos --watch ./dist dist/index.js"
+    command: "nodemon --ext * --delay 4 --watch ./protos --watch ./dist dist/index.js"
     ports:
       - 3000:3000
   ms-calculation:
@@ -15,7 +15,7 @@ services:
       - shared-protos:/srv/packages/ms-calculation/protos:nocopy
       - dist-ms-calculation:/srv/packages/ms-calculation/dist:nocopy
       - dist-utils-number:/srv/packages/ms-calculation/node_modules/utils-number/dist:nocopy
-    command: "nodemon -L --ext js --ext proto --watch /srv/packages/ms-calculation/protos --watch /srv/packages/ms-calculation/dist --watch /srv/packages/ms-calculation/node_modules/ms-calculation /srv/packages/ms-calculation/dist/index.js"
+    command: "nodemon --ext * --delay 4 --watch ./protos --watch ./dist --watch ./node_modules/ms-calculation ./dist/index.js"
 
 volumes:
   shared-protos:

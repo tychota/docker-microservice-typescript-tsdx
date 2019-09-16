@@ -1,9 +1,9 @@
 # syntax = docker/dockerfile:experimental
-FROM node:12-alpine
+FROM node:12
 
 ENV YARN_CACHE_FOLDER=/var/tmp/yarn
 
-RUN apk add --update inotify-tools make
+RUN apt-get update && apt-get install inotify-tools make
 RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn global add nodemon
 
 WORKDIR /srv
