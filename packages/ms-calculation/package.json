@@ -1,6 +1,6 @@
 {
   "name": "ms-calculation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "module": "dist/ms-calculation.esm.js",
   "typings": "dist/index.d.ts",
@@ -9,9 +9,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "utils-number": "*",
     "@grpc/proto-loader": "0.5.2",
-    "grpc": "1.23.3"
+    "grpc": "1.23.3",
+    "utils-number": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "12.7.5",
