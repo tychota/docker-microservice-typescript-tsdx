@@ -21,7 +21,8 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "*": ["src/*", "node_modules/*"]
+      "*": ["src/*", "node_modules/*"],
+      "api-gateway/*": ["src/*"]
     },
     "esModuleInterop": true
   }

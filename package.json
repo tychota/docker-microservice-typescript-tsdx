@@ -7,9 +7,10 @@
     "lerna": "^3.16.4"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap && lerna run patch-package",
+    "bootstrap": "lerna bootstrap && lerna run patch",
+    "bootstrap-prod": "lerna bootstrap -- --production --frozen-lockfile",
     "clean": "lerna clean",
-    "start": "lerna run start --stream",
+    "start": "lerna run start --parallel",
     "build": "lerna run build",
     "update": "lernaupdate"
   },

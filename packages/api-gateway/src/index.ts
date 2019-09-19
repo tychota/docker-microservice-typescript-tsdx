@@ -15,7 +15,7 @@ app.get("/add/:n1/:n2", function(req, res) {
     },
     (err: any, data: any) => {
       if (err) {
-        res.statusCode = 500;
+        res.statusCode = 400;
         res.send(err);
       } else {
         res.send(data.result);
@@ -25,5 +25,5 @@ app.get("/add/:n1/:n2", function(req, res) {
 });
 
 app.listen(3000, function() {
-  console.log("Example app listening on port 3000!");
+  console.log("Listening on 3000");
 });

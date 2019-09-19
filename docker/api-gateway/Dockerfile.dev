@@ -1,12 +1,22 @@
 # syntax = docker/dockerfile:experimental
-FROM node:12-alpine
+FROM node:12
 
-RUN mkdir /var/tmp/yarn
-RUN yarn config set cache-folder /var/tmp/yarn
+ENV YARN_CACHE_FOLDER=/var/tmp/yarn
 
-WORKDIR /srv/api-gateway
+RUN apt-get update && apt-get install inotify-tools make
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn yarn global add nodemon
 
+WORKDIR /srv
+COPY makefile .
+COPY lerna.json .
+COPY yarn.lock .
+COPY package.json .
+
+WORKDIR /srv/packages/api-gateway
 COPY packages/api-gateway/package.json .
 COPY packages/api-gateway/yarn.lock .
 
-RUN --mount=type=cache,id=yarn-cache,sharing=private,target=/var/tmp/yarn yarn install --frozen-lockfile
+WORKDIR /srv
+RUN --mount=type=cache,id=yarn-cache,target=/var/tmp/yarn make install-prod
+
+WORKDIR /srv/packages/api-gateway
